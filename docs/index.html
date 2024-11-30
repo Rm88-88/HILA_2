@@ -1,18 +1,94 @@
-<html>
-	<head>
-		<title>מילון אנגלי-עברי</title>
-	</head>
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מילון עברי-אנגלי</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: right;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
 
-	
-	<body>
-	  <b><h1>אנחנו רוצים ללמוד ולדעת אנגלית טוב</h1></b>
-		<!--זה לא יכנס לתוך הדפדפן -->
-		<p>
-			ולכן אנחנו נבנה כאן אתר עם <strong>מילון עברי-אנגלי</strong><br> שיקל עלינו לדעת אנגלית טוב
-		</p>
-		<p><strong>שלום</strong> שלום</p>
-	</body>
+<h1>מילון עברי-אנגלי</h1>
+<input type="text" id="searchInput" placeholder="חפש מילה בעברית או באנגלית" onkeyup="filterTable()">
 
-	
-	
+<table id="dictionaryTable">
+    <thead>
+        <tr>
+            <th>עברית</th>
+            <th>אנגלית</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>שלום</td>
+            <td>Hello</td>
+        </tr>
+        <tr>
+            <td>תפוח</td>
+            <td>Apple</td>
+        </tr>
+        <tr>
+            <td>מים</td>
+            <td>Water</td>
+        </tr>
+        <tr>
+            <td>ספר</td>
+            <td>Book</td>
+        </tr>
+        <tr>
+            <td>חתול</td>
+            <td>Cat</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function filterTable() {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById('dictionaryTable');
+        const tr = table.getElementsByTagName('tr');
+
+        for (let i = 1; i < tr.length; i++) {
+            const tdHebrew = tr[i].getElementsByTagName('td')[0];
+            const tdEnglish = tr[i].getElementsByTagName('td')[1];
+            if (tdHebrew || tdEnglish) {
+                const textHebrew = tdHebrew.textContent || tdHebrew.innerText;
+                const textEnglish = tdEnglish.textContent || tdEnglish.innerText;
+                if (textHebrew.toLowerCase().indexOf(filter) > -1 || textEnglish.toLowerCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }       
+        }
+    }
+</script>
+
+</body>
 </html>
+```
