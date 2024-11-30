@@ -28,40 +28,130 @@
             padding: 10px;
             margin-bottom: 20px;
         }
+        select {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
 <h1>מילון עברי-אנגלי</h1>
 <input type="text" id="searchInput" placeholder="חפש מילה בעברית או באנגלית" onkeyup="filterTable()">
+<select id="sortSelect" onchange="sortTable()">
+    <option value="default">מיין לפי</option>
+    <option value="alphabet">סדר אלף-בית</option>
+    <option value="category">קטגוריה</option>
+</select>
 
 <table id="dictionaryTable">
     <thead>
         <tr>
             <th>עברית</th>
             <th>אנגלית</th>
+            <th>קטגוריה</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>שלום</td>
-            <td>Hello</td>
-        </tr>
-        <tr>
             <td>תפוח</td>
             <td>Apple</td>
+            <td>אוכל</td>
+        </tr>
+        <tr>
+            <td>מלח</td>
+            <td>Salt</td>
+            <td>אוכל</td>
         </tr>
         <tr>
             <td>מים</td>
             <td>Water</td>
+            <td>אוכל</td>
         </tr>
         <tr>
-            <td>ספר</td>
-            <td>Book</td>
+            <td>לחם</td>
+            <td>Bread</td>
+            <td>אוכל</td>
+        </tr>
+        <tr>
+            <td>ביצה</td>
+            <td>Egg</td>
+            <td>אוכל</td>
+        </tr>
+        <tr>
+            <td>רגל</td>
+            <td>Leg</td>
+            <td>איברי גוף</td>
+        </tr>
+        <tr>
+            <td>יד</td>
+            <td>Hand</td>
+            <td>איברי גוף</td>
+        </tr>
+        <tr>
+            <td>עין</td>
+            <td>Eye</td>
+            <td>איברי גוף</td>
+        </tr>
+        <tr>
+            <td>אוזן</td>
+            <td>Ear</td>
+            <td>איברי גוף</td>
+        </tr>
+        <tr>
+            <td>אף</td>
+            <td>Nose</td>
+            <td>איברי גוף</td>
         </tr>
         <tr>
             <td>חתול</td>
             <td>Cat</td>
+            <td>חיות</td>
+        </tr>
+        <tr>
+            <td>כלב</td>
+            <td>Dog</td>
+            <td>חיות</td>
+        </tr>
+        <tr>
+            <td>אריה</td>
+            <td>Lion</td>
+            <td>חיות</td>
+        </tr>
+        <tr>
+            <td>דג</td>
+            <td>Fish</td>
+            <td>חיות</td>
+        </tr>
+        <tr>
+            <td>סוס</td>
+            <td>Horse</td>
+            <td>חיות</td>
+        </tr>
+        <tr>
+            <td>שמש</td>
+            <td>Sun</td>
+            <td>טבע</td>
+        </tr>
+        <tr>
+            <td>ירח</td>
+            <td>Moon</td>
+            <td>טבע</td>
+        </tr>
+        <tr>
+            <td>כוכב</td>
+            <td>Star</td>
+            <td>טבע</td>
+        </tr>
+        <tr>
+            <td>עץ</td>
+            <td>Tree</td>
+            <td>טבע</td>
+        </tr>
+        <tr>
+            <td>פרח</td>
+            <td>Flower</td>
+            <td>טבע</td>
         </tr>
     </tbody>
 </table>
@@ -87,8 +177,22 @@
             }       
         }
     }
+
+    function sortTable() {
+        const table = document.getElementById('dictionaryTable');
+        const tbody = table.tBodies[0];
+        const rows = Array.from(tbody.rows);
+        const sortOption = document.getElementById('sortSelect').value;
+
+        rows.sort((a, b) => {
+            const aText = sortOption === 'category' ? a.cells[2].textContent : a.cells[0].textContent;
+            const bText = sortOption === 'category' ? b.cells[2].textContent : b.cells[0].textContent;
+            return aText.localeCompare(bText);
+        });
+
+        rows.forEach(row => tbody.appendChild(row));
+    }
 </script>
 
 </body>
 </html>
-```
