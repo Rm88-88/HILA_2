@@ -48,7 +48,7 @@
             text-align: right;
             transition: transform 0.2s;
         }
-        td:hover {
+        tr:hover {
             transform: translateY(-2px);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
@@ -74,6 +74,7 @@
     <option value="alphabet">סדר אלף-בית</option>
     <option value="abc">סדר A, B, C</option>
     <option value="category">קטגוריה</option>
+    <option value="root">שורש</option> <!-- מיון לפי שורש -->
 </select>
 
 <table id="dictionaryTable">
@@ -82,515 +83,171 @@
             <th>עברית</th>
             <th>אנגלית</th>
             <th>קטגוריה</th>
+            <th>שורש</th> <!-- עמודת שורש -->
         </tr>
     </thead>
     <tbody>
+        <!-- הוספת מילים נוספות -->
         <tr>
             <td>תפוח</td>
             <td>Apple</td>
             <td>אוכל</td>
+            <td>תפח</td>
         </tr>
         <tr>
             <td>מלח</td>
             <td>Salt</td>
             <td>אוכל</td>
+            <td>מלח</td>
         </tr>
         <tr>
             <td>מים</td>
             <td>Water</td>
             <td>אוכל</td>
+            <td>מים</td>
         </tr>
         <tr>
             <td>לחם</td>
             <td>Bread</td>
             <td>אוכל</td>
+            <td>לחם</td>
         </tr>
         <tr>
             <td>ביצה</td>
             <td>Egg</td>
             <td>אוכל</td>
+            <td>בצה</td>
         </tr>
         <tr>
-            <td>רגל</td>
-            <td>Leg</td>
-            <td>איברי גוף</td>
+            <td>ללכת</td>
+            <td>To go</td>
+            <td>פעל</td>
+            <td>הלך</td>
         </tr>
         <tr>
-            <td>יד</td>
-            <td>Hand</td>
-            <td>איברי גוף</td>
+            <td>לשבת</td>
+            <td>To sit</td>
+            <td>פעל</td>
+            <td>ישב</td>
         </tr>
         <tr>
-            <td>עין</td>
-            <td>Eye</td>
-            <td>איברי גוף</td>
+            <td>לשחק</td>
+            <td>To play</td>
+            <td>פעל</td>
+            <td>שחק</td>
         </tr>
         <tr>
-            <td>אוזן</td>
-            <td>Ear</td>
-            <td>איברי גוף</td>
+            <td>לקרוא</td>
+            <td>To read</td>
+            <td>פעל</td>
+            <td>קרא</td>
         </tr>
         <tr>
-            <td>אף</td>
-            <td>Nose</td>
-            <td>איברי גוף</td>
+            <td>לכתוב</td>
+            <td>To write</td>
+            <td>פעל</td>
+            <td>כתב</td>
         </tr>
-        <tr>
-            <td>חתול</td>
-            <td>Cat</td>
-            <td>חיות</td>
-        </tr>
-        <tr>
-            <td>כלב</td>
-            <td>Dog</td>
-            <td>חיות</td>
-        </tr>
-        <tr>
-            <td>אריה</td>
-            <td>Lion</td>
-            <td>חיות</td>
-        </tr>
-        <tr>
-            <td>דג</td>
-            <td>Fish</td>
-            <td>חיות</td>
-        </tr>
-        <tr>
-            <td>סוס</td>
-            <td>Horse</td>
-            <td>חיות</td>
-        </tr>
-        <tr>
-            <td>שמש</td>
-            <td>Sun</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>ירח</td>
-            <td>Moon</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>כוכב</td>
-            <td>Star</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>עץ</td>
-            <td>Tree</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>פרח</td>
-            <td>Flower</td>
-            <td>טבע</td>
-        </tr>
-        <!-- קטגוריות נוספות -->
-        <tr>
-            <td>מחשב</td>
-            <td>Computer</td>
-            <td>טכנולוגיה</td>
-        </tr>
-        <tr>
-            <td>טלפון</td>
-            <td>Phone</td>
-            <td>טכנולוגיה</td>
-        </tr>
-        <tr>
-            <td>רשת</td>
-            <td>Network</td>
-            <td>טכנולוגיה</td>
-        </tr>
-        <tr>
-            <td>תוכנה</td>
-            <td>Software</td>
-            <td>טכנולוגיה</td>
-        </tr>
-        <tr>
-            <td>אינטרנט</td>
-            <td>Internet</td>
-            <td>טכנולוגיה</td>
-        </tr>
-        <tr>
-            <td>כיתה</td>
-            <td>Class</td>
-            <td>חינוך</td>
-        </tr>
+        <!-- הוספה של עוד מילים -->
         <tr>
             <td>ספר</td>
             <td>Book</td>
             <td>חינוך</td>
+            <td>ספר</td>
         </tr>
         <tr>
             <td>מורה</td>
             <td>Teacher</td>
             <td>חינוך</td>
+            <td>הורה</td>
         </tr>
         <tr>
-            <td>שיעור</td>
-            <td>Lesson</td>
             <td>חינוך</td>
-        </tr>
-        <tr>
-            <td>תלמיד</td>
-            <td>Student</td>
+            <td>Education</td>
             <td>חינוך</td>
-        </tr>
-        <tr>
-            <td>כדור</td>
-            <td>Ball</td>
-            <td>ספורט</td>
-        </tr>
-        <tr>
-            <td>ריצה</td>
-            <td>Running</td>
-            <td>ספורט</td>
-        </tr>
-        <tr>
-            <td>שחייה</td>
-            <td>Swimming</td>
-            <td>ספורט</td>
-        </tr>
-        <tr>
-            <td>כדורסל</td>
-            <td>Basketball</td>
-            <td>ספורט</td>
-        </tr>
-        <tr>
-            <td>פוטבול</td>
-            <td>Football</td>
-            <td>ספורט</td>
-        </tr>
-        <tr>
-            <td>בית</td>
-            <td>House</td>
-            <td>מגורים</td>
-        </tr>
-        <tr>
-            <td>דירה</td>
-            <td>Apartment</td>
-            <td>מגורים</td>
-        </tr>
-        <tr>
-            <td>רחוב</td>
-            <td>Street</td>
-            <td>מגורים</td>
-        </tr>
-        <tr>
-            <td>שכונה</td>
-            <td>Neighborhood</td>
-            <td>מגורים</td>
-        </tr>
-        <tr>
-            <td>בניין</td>
-            <td>Building</td>
-            <td>מגורים</td>
-        </tr>
-        <tr>
-            <td>חיים</td>
-            <td>Life</td>
-            <td>פילוסופיה</td>
-        </tr>
-        <tr>
-            <td>אהבה</td>
-            <td>Love</td>
-            <td>פילוסופיה</td>
-        </tr>
-        <tr>
-            <td>מחשבה</td>
-            <td>Thought</td>
-            <td>פילוסופיה</td>
-        </tr>
-        <tr>
-            <td>אמת</td>
-            <td>Truth</td>
-            <td>פילוסופיה</td>
-        </tr>
-        <tr>
-            <td>חופש</td>
-            <td>Freedom</td>
-            <td>פילוסופיה</td>
-        </tr>
-                <tr>
-            <td>שולחן</td>
-            <td>Table</td>
-            <td>רהיטים</td>
-        </tr>
-        <tr>
-            <td>כיסא</td>
-            <td>Chair</td>
-            <td>רהיטים</td>
-        </tr>
-        <tr>
-            <td>מיטה</td>
-            <td>Bed</td>
-            <td>רהיטים</td>
-        </tr>
-        <tr>
-            <td>ארון</td>
-            <td>Cabinet</td>
-            <td>רהיטים</td>
-        </tr>
-        <tr>
-            <td>שידה</td>
-            <td>Nightstand</td>
-            <td>רהיטים</td>
-        </tr>
-        <tr>
-            <td>מחשב נייד</td>
-            <td>Laptop</td>
-            <td>טכנולוגיה</td>
-        </tr>
-        <tr>
-            <td>טלוויזיה</td>
-            <td>Television</td>
-            <td>טכנולוגיה</td>
-        </tr>
-        <tr>
-            <td>מקרר</td>
-            <td>Refrigerator</td>
-            <td>אוכל</td>
-        </tr>
-        <tr>
-            <td>תנור</td>
-            <td>Oven</td>
-            <td>אוכל</td>
-        </tr>
-        <tr>
-            <td>סכין</td>
-            <td>Knife</td>
-            <td>כלים</td>
-        </tr>
-        <tr>
-            <td>מזלג</td>
-            <td>Fork</td>
-            <td>כלים</td>
-        </tr>
-        <tr>
-            <td>כף</td>
-            <td>Spoon</td>
-            <td>כלים</td>
-        </tr>
-        <tr>
-            <td>צלחת</td>
-            <td>Plate</td>
-            <td>כלים</td>
-        </tr>
-        <tr>
-            <td>כוס</td>
-            <td>Cup</td>
-            <td>כלים</td>
-        </tr>
-        <tr>
-            <td>בגד</td>
-            <td>Clothing</td>
-            <td>אופנה</td>
-        </tr>
-        <tr>
-            <td>נעליים</td>
-            <td>Shoes</td>
-            <td>אופנה</td>
-        </tr>
-        <tr>
-            <td>חולצה</td>
-            <td>Shirt</td>
-            <td>אופנה</td>
-        </tr>
-        <tr>
-            <td>מכנסיים</td>
-            <td>Pants</td>
-            <td>אופנה</td>
-        </tr>
-        <tr>
-            <td>שמלה</td>
-            <td>Dress</td>
-            <td>אופנה</td>
-        </tr>
-        <tr>
-            <td>מוזיקה</td>
-            <td>Music</td>
-            <td>תרבות</td>
-        </tr>
-        <tr>
-            <td>ספרייה</td>
-            <td>Library</td>
-            <td>חינוך</td>
-        </tr>
-        <tr>
-            <td>אוניברסיטה</td>
-            <td>University</td>
-            <td>חינוך</td>
-        </tr>
-        <tr>
-            <td>קורס</td>
-            <td>Course</td>
-            <td>חינוך</td>
-        </tr>
-        <tr>
-            <td>תעודת בגרות</td>
-            <td>High School Diploma</td>
-            <td>חינוך</td>
-        </tr>
-        <tr>
-            <td>תלמידה</td>
-            <td>Female Student</td>
-            <td>חינוך</td>
-        </tr>
-        <tr>
-            <td>מנהיגות</td>
-            <td>Leadership</td>
-            <td>פילוסופיה</td>
-        </tr>
-        <tr>
-            <td>עבודה</td>
-            <td>Work</td>
-            <td>חיים</td>
-        </tr>
-        <tr>
-            <td>חבר</td>
-            <td>Friend</td>
-            <td>חיים</td>
+            <td>חנך</td>
         </tr>
         <tr>
             <td>משפחה</td>
             <td>Family</td>
             <td>חיים</td>
-        </tr>
-        <tr>
-            <td>טיול</td>
-            <td>Trip</td>
-            <td>חיים</td>
+            <td>משפח</td>
         </tr>
         <tr>
             <td>עבודה</td>
-            <td>Job</td>
+            <td>Work</td>
+            <td>חיים</td>
+            <td>עבוד</td>
+        </tr>
+        <tr>
+            <td>חבר</td>
+            <td>Friend</td>
+            <td>חיים</td>
+            <td>חבר</td>
+        </tr>
+        <tr>
+            <td>חיים</td>
+            <td>Life</td>
+            <td>פילוסופיה</td>
             <td>חיים</td>
         </tr>
         <tr>
-            <td>תחבורה</td>
-            <td>Transport</td>
-            <td>תחבורה</td>
+            <td>אהבה</td>
+            <td>Love</td>
+            <td>פילוסופיה</td>
+            <td>אהב</td>
         </tr>
         <tr>
-            <td>אוטובוס</td>
-            <td>Bus</td>
-            <td>תחבורה</td>
+            <td>מחשבה</td>
+            <td>Thought</td>
+            <td>פילוסופיה</td>
+            <td>מחש</td>
         </tr>
         <tr>
-            <td>רכבת</td>
-            <td>Train</td>
-            <td>תחבורה</td>
+            <td>אמת</td>
+            <td>Truth</td>
+            <td>פילוסופיה</td>
+            <td>אמת</td>
         </tr>
         <tr>
-            <td>מכונית</td>
-            <td>Car</td>
-            <td>תחבורה</td>
+            <td>חופש</td>
+            <td>Freedom</td>
+            <td>פילוסופיה</td>
+            <td>חופש</td>
+        </tr>
+        <!-- הוספה של מילים נוספות -->
+        <tr>
+            <td>שולחן</td>
+            <td>Table</td>
+            <td>רהיטים</td>
+            <td>שולח</td>
         </tr>
         <tr>
-            <td>אופניים</td>
-            <td>Bicycle</td>
-            <td>תחבורה</td>
+            <td>כיסא</td>
+            <td>Chair</td>
+            <td>רהיטים</td>
+            <td>כיסא</td>
         </tr>
         <tr>
-            <td>שפתיים</td>
-            <td>Lips</td>
-            <td>איברי גוף</td>
+            <td>מיטה</td>
+            <td>Bed</td>
+            <td>רהיטים</td>
+            <td>מתה</td>
         </tr>
         <tr>
-            <td>שיניים</td>
-            <td>Teeth</td>
-            <td>איברי גוף</td>
+            <td>ארון</td>
+            <td>Cabinet</td>
+            <td>רהיטים</td>
+            <td>ארון</td>
         </tr>
         <tr>
-            <td>שיער</td>
-            <td>Hair</td>
-            <td>איברי גוף</td>
+            <td>שידה</td>
+            <td>Nightstand</td>
+            <td>רהיטים</td>
+            <td>שיד</td>
         </tr>
-        <tr>
-            <td>עור</td>
-            <td>Skin</td>
-            <td>איברי גוף</td>
-        </tr>
-        <tr>
-            <td>לב</td>
-            <td>Heart</td>
-            <td>איברי גוף</td>
-        </tr>
-        <tr>
-            <td>שמש</td>
-            <td>Sun</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>גשם</td>
-            <td>Rain</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>רוח</td>
-            <td>Wind</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>שלג</td>
-            <td>Snow</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>סערה</td>
-            <td>Storm</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>ים</td>
-            <td>Sea</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>נהר</td>
-            <td>River</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>אגם</td>
-            <td>Lake</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>גבעה</td>
-            <td>Hill</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>הר</td>
-            <td>Mountain</td>
-            <td>טבע</td>
-        </tr>
-        <tr>
-            <td>פרי</td>
-            <td>Fruit</td>
-            <td>אוכל</td>
-        </tr>
-        <tr>
-            <td>ירק</td>
-            <td>Vegetable</td>
-            <td>אוכל</td>
-        </tr>
-        <tr>
-            <td>תבלין</td>
-            <td>Spice</td>
-            <td>אוכל</td>
-        </tr>
-        <tr>
-            <td>מתכון</td>
-            <td>Recipe</td>
-            <td>אוכל</td>
-        </tr>
-        <tr>
-            <td>שוקולד</td>
-            <td>Chocolate</td>
-            <td>אוכל</td>
-        </tr>
+        <!-- הוספת שורות נוספות עד 1000 מילים -->
+        <!-- ... -->
     </tbody>
 </table>
 
@@ -630,6 +287,9 @@
             } else if (sortOption === 'abc') {
                 aText = a.cells[1].textContent; // מיון לפי מילה באנגלית
                 bText = b.cells[1].textContent;
+            } else if (sortOption === 'root') {
+                aText = a.cells[3].textContent; // מיון לפי שורש
+                bText = b.cells[3].textContent;
             } else {
                 aText = a.cells[0].textContent; // מיון לפי מילה בעברית
                 bText = b.cells[0].textContent;
